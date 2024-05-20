@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Profile/>
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,4 +17,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    width: 320,
+    height: 440,
+    borderRadius: 18,
+  },
 });
+
+const ProfilePicture = require('./assets/images/test.png');
+
+const Profile = () => {
+  return (
+    <>
+      <Photo />
+      <Name />
+    </>
+  );
+  
+};
+
+const Name = () => {
+  return (
+    <>
+      <Text> Gabriel Barros </Text>
+    </>
+  );
+};
+
+const Photo = () => {
+  return (
+    <>
+      <Image source={ProfilePicture} style={styles.image}></Image>
+    </>
+  );
+};
+
