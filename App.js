@@ -1,7 +1,11 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import * as NavBar from 'expo-navigation-bar';
+
 
 export default function App() {
+  const visibility = NavBar.useVisibility();
   return (
     <View style={styles.container}>
       <Profile/>
@@ -18,9 +22,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 320,
-    height: 440,
+    width: 200,
+    height: 200,
     borderRadius: 18,
+  }, name: {
+    fontSize: 35,
   },
 });
 
@@ -39,7 +45,7 @@ const Profile = () => {
 const Name = () => {
   return (
     <>
-      <Text> Gabriel Barros </Text>
+      <Text style={styles.name}> Gabriel Barros </Text>
     </>
   );
 };
