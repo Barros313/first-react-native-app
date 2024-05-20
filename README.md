@@ -1,0 +1,1 @@
+# App mostrando foto e nome utilizando react native
