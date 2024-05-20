@@ -1,16 +1,33 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
 import * as NavBar from 'expo-navigation-bar';
 
+const Stack = createStackNavigator();
 
 export default function App() {
-  const visibility = NavBar.useVisibility();
+  useEffect(() => {
+    NavBar.setBackgroundColorAsync('#FFFFFF'); // Set the background color
+    NavBar.setButtonStyleAsync('dark'); // Set the button style (light or dark)
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Profile/>
+    // <View style={styles.container}>
+      <NavigationContainer>
+        <NavBar style='dark'>
+          <Stack.Navigator>
+            <Stack.Screen name='Home' component={HomeScreen} />
+            <Stack.Screen name='Details' component={DetailsScreen} />
+          </Stack.Navigator>
+        </NavBar>
+      </NavigationContainer>
+      /* <Profile/>
       <StatusBar style="auto" />
-    </View>
+    </View> */
   );
 };
 
